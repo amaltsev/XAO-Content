@@ -1,8 +1,8 @@
-package testcases::WebContent;
+package testcases::Content::WebContent;
 use strict;
 use XAO::Objects;
 
-use base qw(testcases::base);
+use base qw(testcases::Content::base);
 
 sub test_everything {
     my $self=shift;
