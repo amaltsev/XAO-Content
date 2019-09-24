@@ -5,6 +5,8 @@ SYNOPSIS
      <%Content name="about_us"%>
 
 DESCRIPTION
+    Obsolete! Do not use in new development.
+
     For installation and usage instruction see "INSTALLATION AND USAGE"
     chapter below.
 

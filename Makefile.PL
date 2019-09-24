@@ -26,17 +26,11 @@ Please enter access information (brackets contain default values), entering
 'none' will disable tests:
 
 EOT
-    my $dsn='none';
-    print "DSN: [$dsn] ";
-    chomp(my $str=<STDIN>);
-    if($str) {
-        if($str =~ /^\s*(OS:(\w+):(\w+)(;.*?)?)\s*$/) {
-            $dsn=$1;
-        }
-        else {
-            die "Incorrect DSN entered!\n";
-        }
-    }
+    my $dsn=prompt('DSN:','none');
+
+    $dsn eq 'none' || $dsn =~ /^\s*(OS:(\w+):(\w+)(;.*?)?)\s*$/ ||
+        die "Incorrect DSN entered!\n";
+
     my $user='';
     my $pass='';
     my $confirm='n';
@@ -50,17 +44,9 @@ Ok, tests will be skipped per your request.
 EOT
     }
     else {
-        chomp($user=`whoami`);
-        print "User name: [$user] ";
-        chomp($str=<STDIN>);
-        if($str && $str=~/^\s*(.*?)\s*$/) {
-            $user=$1;
-        }
-        print "Password: [$pass] ";
-        chomp($str=<STDIN>);
-        if($str && $str=~/^\s*(.*?)\s*$/) {
-            $pass=$1;
-        }
+        chomp(my $default_user=`whoami`);
+        $user=prompt('User name:',$default_user);
+        $pass=prompt('Password:','');
 
         print <<EOT;
 
@@ -71,9 +57,8 @@ Here is what will be used to connect to the test database
    Password: $password
 
 EOT
-        $|=1;
-        print "Does it make sense ? [Y/n] y\b";
-        chomp($confirm=<STDIN>);
+
+        $confirm=prompt('Does it make sense ?','y');
     }
 
     if(!$confirm || lc($confirm)=~/y/) {

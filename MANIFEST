@@ -12,9 +12,9 @@ Content.pm
 lib/XAO/DO/Data/Content.pm
 lib/XAO/DO/Data/ContentData.pm
  -----------------------------------------
-testcases/Content/WebContent.pm
-testcases/Content/base.pm
-testcases/testroot/projects/test/objects/Config.pm
+t/testcases/Content/base.pm
+t/testcases/Content/WebContent.pm
+t/xao/projects/test/objects/Config.pm
  -----------------------------------------
 templates/bits/content/add-form
 templates/bits/content/add-success

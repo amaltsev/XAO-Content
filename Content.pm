@@ -8,6 +8,8 @@ XAO::DO::Web::Content -- Dynamic content management for XAO::Web
 
 =head1 DESCRIPTION
 
+B<Obsolete! Do not use in new development.>
+
 For installation and usage instruction see "INSTALLATION AND USAGE"
 chapter below.
 
@@ -228,7 +230,7 @@ use XAO::Utils;
 use XAO::Objects;
 
 use vars qw($VERSION);
-$VERSION='1.04';
+$VERSION='1.05';
 
 use base XAO::Objects->load(objname => 'Web::FS');
 
